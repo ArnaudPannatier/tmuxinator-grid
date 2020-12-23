@@ -15,12 +15,12 @@ def main(args):
     windows = [
         {
             "title": "window{}".format(window),
-            "panes": list(range(s))
+            "panes": [i+1 for i in range(s)]
         } for window in list(range(args.n // s))]
     if args.n % s:
         windows.append({
             "title": "window{}".format(args.n // s + 1),
-            "panes": [{"name": str(i)} for i in range(args.n % s)]})
+            "panes": [{"name": str(i+1)} for i in range(args.n % s)]})
     print(template.render(windows=windows))
 
 

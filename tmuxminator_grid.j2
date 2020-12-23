@@ -6,6 +6,13 @@ windows:
     - {{window.title}}:
       layout: tiled 
       panes:
-        {% for pane in window.panes %}- logs{{pane.name}}:{% block code scoped%}{% endblock  %}
+        {% for pane in window.panes %}- logs{{pane.name}}:{% block out scoped%}{% endblock  %}
+        {% endfor%}
+  {% endfor %}
+  {% for window in windows -%}
+    - error{{window.title}}:
+      layout: tiled 
+      panes:
+        {% for pane in window.panes %}- logs{{pane.name}}:{% block error scoped%}{% endblock  %}
         {% endfor%}
   {% endfor %}
