@@ -1,0 +1,11 @@
+name: grid_result
+root: ~/
+
+windows:
+  {% for window in windows -%}
+    - {{window.title}}:
+      layout: tiled 
+      panes:
+        {% for pane in window.panes %}- logs{{pane.name}}:{% block code scoped%}{% endblock  %}
+        {% endfor%}
+  {% endfor %}
